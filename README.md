@@ -29,7 +29,7 @@ rosdep install --from-paths src --ignore-src -r
 ```
 3. Build the ROS bridge workspace using colcon:
 ```
-colcon build --symlink-install
+colcon build
 ```
 
 
