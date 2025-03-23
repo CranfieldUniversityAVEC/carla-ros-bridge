@@ -26,7 +26,7 @@ def generate_launch_description():
         ),
         launch.actions.DeclareLaunchArgument(
             name='synchronous_mode',
-            default_value='True',
+            default_value='False',
             description='Enable/disable synchronous mode. If enabled, the ROS bridge waits until the expected data is received for all sensors'
         ),
         launch.actions.DeclareLaunchArgument(
@@ -36,12 +36,12 @@ def generate_launch_description():
         ),
         launch.actions.DeclareLaunchArgument(
             name='fixed_delta_seconds',
-            default_value='0.05',
+            default_value='0.1',
             description='Simulation time (delta seconds) between simulation steps'
         ),
         launch.actions.DeclareLaunchArgument(
             name='town',
-            default_value='Town10HD',
+            default_value='Carla/Maps/Town02_Opt',
             description='Either use an available CARLA town (eg. "Town01") or an OpenDRIVE file (ending in .xodr)'
         ),
         launch.actions.DeclareLaunchArgument(
@@ -51,7 +51,7 @@ def generate_launch_description():
         ),
         launch.actions.DeclareLaunchArgument(
             name='ego_vehicle_role_name',
-            default_value='hero',
+            default_value='ego_vehicle',
             #default_value=["hero", "ego_vehicle", "hero0", "hero1", "hero2",
             #               "hero3", "hero4", "hero5", "hero6", "hero7", "hero8", "hero9"],
             description='Role names to identify ego vehicles. '

@@ -13,7 +13,7 @@ Control Carla ego vehicle by using AckermannDrive messages
 import sys
 
 import numpy
-from simple_pid import PID  # pylint: disable=import-error,wrong-import-order
+from simple_pid import PID # pylint: disable=import-error,wrong-import-order
 
 import ros_compatibility as roscomp
 from ros_compatibility.node import CompatibleNode
@@ -55,7 +55,7 @@ class CarlaAckermannControl(CompatibleNode):
         # To prevent "float division by zero" within PID controller initialize it with
         # a previous point in time (the error happens because the time doesn't
         # change between initialization and first call, therefore dt is 0)
-        sys.modules['simple_pid.PID']._current_time = (       # pylint: disable=protected-access
+        sys.modules['simple_pid.pid']._current_time = (       # pylint: disable=protected-access
             lambda: self.get_time() - 0.1)
 
         # we might want to use a PID controller to reach the final target speed
@@ -71,7 +71,7 @@ class CarlaAckermannControl(CompatibleNode):
                                     output_limits=(-1, 1))
 
         # use the correct time for further calculations
-        sys.modules['simple_pid.PID']._current_time = (       # pylint: disable=protected-access
+        sys.modules['simple_pid.pid']._current_time = (       # pylint: disable=protected-access
             lambda: self.get_time())
 
         if ROS_VERSION == 1:
